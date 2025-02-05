@@ -1,9 +1,4 @@
 ﻿using JornadaMilhasV1.Modelos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JornadaMilhasV1.Gerencidor;
 public class GerenciadorDeOfertas
@@ -80,5 +75,10 @@ public class GerenciadorDeOfertas
         {
             Console.WriteLine(oferta);
         }
+    }
+
+    public OfertaViagem? RecoveryGreaterDiscount(Func<OfertaViagem, bool> filter)
+    {
+        return ofertaViagem.Where(filter).OrderBy(x => x.Preco).FirstOrDefault();
     }
 }
